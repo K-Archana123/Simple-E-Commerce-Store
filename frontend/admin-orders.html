@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Orders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>📦 Order History</h1>
+
+<div id="ordersContainer"></div>
+
+<script>
+
+const orders =
+JSON.parse(
+localStorage.getItem("orders")
+) || [];
+
+let html = "";
+
+orders.forEach(order => {
+
+html += `
+
+<div class="card">
+
+    <h3>${order.product}</h3>
+
+    <p>Customer: ${order.customer}</p>
+
+    <p>Phone: ${order.phone}</p>
+
+    <p>Address: ${order.address}</p>
+
+    <p>Payment: ${order.payment}</p>
+
+    <p>Status: ${order.status}</p>
+
+    <p>Date: ${order.orderDate}</p>
+
+</div>
+
+`;
+
+});
+
+document.getElementById(
+"ordersContainer"
+).innerHTML = html;
+
+</script>
+
+</body>
+</html>

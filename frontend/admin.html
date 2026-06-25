@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🛒 ShopEasy Admin Panel</h1>
+
+<a href="admin-orders.html">
+    📦 View Orders
+</a>
+
+<div class="admin-form">
+
+    <input
+    type="text"
+    id="productName"
+    placeholder="Product Name">
+
+    <input
+    type="number"
+    id="productPrice"
+    placeholder="Price">
+
+    <input
+    type="text"
+    id="productCategory"
+    placeholder="Category">
+
+    <!-- CHANGED -->
+    <input
+    type="text"
+    id="productImage"
+    placeholder="images/product.jpg">
+
+    <input
+    type="text"
+    id="productSizes"
+    placeholder="Sizes (S,M,L,XL)">
+
+    <button onclick="addProduct()">
+        Add Product
+    </button>
+
+</div>
+
+<h2>All Products</h2>
+
+<div id="adminProducts"></div>
+
+<button onclick="adminLogout()">
+    Logout
+</button>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

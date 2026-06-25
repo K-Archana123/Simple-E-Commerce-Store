@@ -1,0 +1,12 @@
+node_modules/
+.git/
+.vscode/
+*.zip
+*.pdf
+*.docx
+*.ppt
+*.pptx
+*.lnk
+Thumbs.db
+desktop.ini
+.DS_Store

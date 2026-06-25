@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UPI Payment</title>
+</head>
+<body>
+
+<h1>UPI Payment</h1>
+
+<input
+type="text"
+id="upiId"
+placeholder="Enter UPI ID">
+
+<button onclick="payNow()">
+Pay ₹899
+</button>
+
+<script>
+
+function payNow(){
+
+    const upiId =
+    document.getElementById("upiId").value;
+
+    if(!upiId){
+
+        alert(
+        "Enter UPI ID"
+        );
+
+        return;
+    }
+
+    alert(
+    "Payment Successful ✅"
+    );
+
+    saveOrderAndRedirect();
+
+}
+
+</script>
+
+</body>
+</html>

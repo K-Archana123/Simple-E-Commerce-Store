@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ShopEasy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-header">
+            <h1>🛒 ShopEasy</h1>
+            <p>Create your account</p>
+        </div>
+
+        <form id="registerForm">
+
+            <input type="text"
+                   id="name"
+                   placeholder="Full Name"
+                   required>
+
+            <input type="email"
+                   id="email"
+                   placeholder="Email Address"
+                   required>
+
+            <input type="password"
+                   id="password"
+                   placeholder="Password"
+                   required>
+
+            <input type="password"
+                   id="confirmPassword"
+                   placeholder="Confirm Password"
+                   required>
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+        <div class="auth-footer">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const form = document.getElementById("registerForm");
+
+form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+    if(password !== confirmPassword){
+        document.getElementById("message").innerText =
+            "Passwords do not match";
+        return;
+    }
+
+    try{
+
+        const response = await fetch(
+            "http://localhost:5000/api/auth/register",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    name,
+                    email,
+                    password
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        document.getElementById("message").innerText =
+            data.message;
+
+    }catch(error){
+
+        document.getElementById("message").innerText =
+            "Registration Failed";
+
+    }
+
+});
+</script>
+
+</body>
+</html>
